@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dy1v3chaiq3j5"]
+[gd_scene load_steps=3 format=3 uid="uid://dy1v3chaiq3j5"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_ukmli"]
+[ext_resource type="PackedScene" uid="uid://c2xpuv4rjvxuq" path="res://scenes/background/parallax_background.tscn" id="2_m7b3p"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_ukmli")
@@ -22,6 +23,8 @@ offset_bottom = 513.0
 theme_override_font_sizes/font_size = 50
 text = "Exit"
 metadata/_edit_use_anchors_ = true
+
+[node name="bg" parent="." instance=ExtResource("2_m7b3p")]
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
