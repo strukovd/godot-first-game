@@ -1,9 +1,25 @@
-[gd_scene load_steps=27 format=3 uid="uid://blow846c1i3qi"]
+[gd_scene load_steps=31 format=3 uid="uid://blow846c1i3qi"]
 
 [ext_resource type="Script" path="res://scenes/players/player1/player1.gd" id="1_2kjf4"]
 [ext_resource type="Texture2D" uid="uid://csnhdmc50jdhf" path="res://oak_woods_v1.0/character/char_blue.png" id="1_xx2wv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7xnad"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r64rp"]
+atlas = ExtResource("1_xx2wv")
+region = Rect2(56, 224, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_km6et"]
+atlas = ExtResource("1_xx2wv")
+region = Rect2(112, 224, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyjvh"]
+atlas = ExtResource("1_xx2wv")
+region = Rect2(168, 224, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oee06"]
+atlas = ExtResource("1_xx2wv")
+region = Rect2(224, 224, 56, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8rqv6"]
 atlas = ExtResource("1_xx2wv")
@@ -97,6 +113,23 @@ region = Rect2(392, 112, 56, 56)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_r64rp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_km6et")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyjvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oee06")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_8rqv6")
 }, {
 "duration": 1.0,
@@ -186,5 +219,16 @@ shape = SubResource("CapsuleShape2D_7xnad")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -13)
 sprite_frames = SubResource("SpriteFrames_t71ao")
-animation = &"idle"
+animation = &"fall"
 autoplay = "idle"
+frame = 2
+frame_progress = 0.199762
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.4, 2.4)
+process_callback = 0
+limit_left = 0
+limit_right = 1300
+limit_bottom = 750
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
